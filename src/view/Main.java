@@ -63,19 +63,25 @@ public class Main {
     }
 
     private static void writePhoneBook(PhoneBookManager phoneBookManager) {
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Enter file");
+        String file=scanner.nextLine();
         try {
-            phoneBookManager.readFile(inputFile());
+            phoneBookManager.writeFile(file);
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
     private static void readPhoneBook(PhoneBookManager phoneBookManager) {
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Enter file");
+        String file=scanner.nextLine();
         try {
-            phoneBookManager.writeFile(inputFile());
+            phoneBookManager.readFile(file);
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -137,11 +143,5 @@ public class Main {
          return phoneNumber;
      }
 
-     public static String inputFile(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Nhập tên file");
-        String file = scanner.nextLine();
 
-        return file;
-     }
 }
